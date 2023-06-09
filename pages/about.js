@@ -20,14 +20,14 @@ export default function developers() {
 
               <div class="bg-white flex flex-col justify-start p-6">
                 <a class="text-3xl font-bold hover:text-green-700 pb-4 text-center">
-                  경기도맛집 소개 사이트 프로젝트
+                  경기도 맛집 소개 프로젝트
                 </a>
                 <p class="text-sm pb-8 text-right">
-                  By
+                  By&nbsp;
                   <a class="font-semibold hover:text-gray-800 text-right">
                     GameMeeple
                   </a>
-                  , Published on 2023
+                  ,&nbsp;Published on 2023
                 </p>
               </div>
             </article>
