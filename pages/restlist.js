@@ -57,13 +57,13 @@ export default function page() {
                     placeholder="검색하고 싶은 단어를 입력해주세요."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    class="w-full rounded-md border-gray-200 bg-white p-3 text-gray-700 shadow-sm transition focus:border-white focus:outline-none focus:ring focus:ring-yellow-400"
+                    class="w-full rounded-md border-gray-200 bg-white p-3 text-gray-700 shadow-md transition focus:border-white focus:outline-none focus:ring focus:ring-yellow-400"
                   />
                 </div>
 
-                <button
+                {/* <button
                   type="submit"
-                  class="group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-rose-600 px-5 py-3 text-white transition focus:outline-none focus:ring focus:ring-yellow-400 sm:mt-0 sm:w-auto"
+                  class="group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-blue-400 px-5 py-3 text-white transition focus:outline-none focus:ring focus:ring-yellow-400 sm:mt-0 sm:w-auto"
                 >
                   <span class="text-sm font-medium"> 검색하기 </span>
 
@@ -81,6 +81,15 @@ export default function page() {
                       d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </svg>
+                </button> */}
+                <button
+                  class="rounded-lg group relative inline-block text-sm font-medium text-blue-600 active:text-blue-500 focus:outline-none focus:ring focus:ring-coral-400 sm:mt-0 sm:w-auto"
+                  type="submit"
+                >
+                  <span class="rounded-lg absolute inset-0 border border-current"></span>
+                  <span class="rounded-lg block border border-current bg-white px-12 py-3 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1">
+                    검색하기
+                  </span>
                 </button>
               </form>
             </div>
@@ -98,22 +107,24 @@ export default function page() {
           </ul>
         </div>
 
-        <div class="flex justify-center mt-8">
-          <nav class="flex items-center gap-2" aria-label="Pagination">
-            {Array.from({ length: totalPages }, (_, index) => (
-              <button
-                key={index + 1}
-                onClick={() => handlePageChange(index + 1)}
-                class={`px-4 py-2 rounded-md focus:outline-none focus:ring ${
-                  currentPage === index + 1
-                    ? "bg-rose-600 text-white"
-                    : "bg-white text-gray-700"
-                }`}
-              >
-                {index + 1}
-              </button>
-            ))}
-          </nav>
+        <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
+          <div class="flex justify-center">
+            <nav class="flex items-center gap-2" aria-label="Pagination">
+              {Array.from({ length: totalPages }, (_, index) => (
+                <button
+                  key={index + 1}
+                  onClick={() => handlePageChange(index + 1)}
+                  class={`px-4 py-2 rounded-md focus:outline-none focus:ring ${
+                    currentPage === index + 1
+                      ? "bg-blue-400 text-white"
+                      : "bg-white text-gray-700"
+                  }`}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </nav>
+          </div>
         </div>
       </div>
     </Layout>
