@@ -2,9 +2,7 @@ import Head from "next/head";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { signOut, useSession } from "next-auth/react";
-import { Menu } from "@headlessui/react";
 import Cookies from "js-cookie";
-import { ArrowUturnRightIcon, Cog6ToothIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import Image from "next/image";
 export default function Layout({ title, children }) {
@@ -22,7 +20,7 @@ export default function Layout({ title, children }) {
           {title ? title + " - GyeonggiGourmet" : "GyeonggiGourmet"}
         </title>
         <meta name="description" content="Nextjs" />
-        <link rel="icon" href="/head.png" />
+        <link rel="icon" href="/gourmet.png" />
       </Head>
       <ToastContainer position="bottom-center" limit={1} />
 

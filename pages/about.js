@@ -9,14 +9,16 @@ export default function developers() {
       <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8 bg-white">
         <div class="">
           <section class="w-full flex flex-col items-center px-3">
-            <article class="flex flex-col my-4 p-4">
-              <iframe
-                src="https://www.youtube.com/embed/GbQ79QCQki4"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                className="w-full max-w-screen-md h-full mx-auto border-none block"
-              ></iframe>
+            <article class="flex flex-col p-4">
+              <div>
+                <iframe
+                  src="https://www.youtube.com/embed/GbQ79QCQki4"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                  className="w-full max-w-2xl h-500px mx-auto border-none block"
+                ></iframe>
+              </div>
 
               <div class="bg-white flex flex-col justify-start p-6">
                 <a class="text-3xl font-bold hover:text-green-700 pb-4 text-center">
