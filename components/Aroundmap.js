@@ -16,7 +16,8 @@ export default function Aroundmap() {
 
   const CustomOverlay = () => (
     <a
-      class="relative block overflow-hidden bg-[url(https://source.unsplash.com/collection/1346951/300x400)] bg-cover bg-center bg-no-repeat"
+      class="relative block overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${restaurant.IMG_URL})` }}
       onClick={() => setIsOpen(false)}
     >
       <div class="absolute inset-0 bg-black/25"></div>

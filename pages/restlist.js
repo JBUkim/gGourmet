@@ -1,9 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import GourmetItem from "../components/GourmetItem";
 import data from "../utils/data";
 import Layout from "../components/Layout";
+import Swal from "sweetalert2";
 
 export default function page() {
+  const [search, setSearch] = useState("");
+  const [results, setResults] = useState(data.restaurants);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const searchResults = !search
+      ? data.restaurants
+      : data.restaurants.filter((r) =>
+          r.RESTRT_NM.toLowerCase().includes(search.toLowerCase())
+        );
+    if (searchResults.length === 0) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "검색 결과가 존재하지 않습니다.",
+        footer: '<a href="">다시 검색하기</a>',
+      });
+    } else {
+      setResults(searchResults);
+    }
+  };
+
+  const totalPages = Math.ceil(results.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentItems = results.slice(startIndex, endIndex);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <Layout title="RestaurantList">
       <div>
@@ -11,26 +45,18 @@ export default function page() {
           <div class="p-8 md:p-12 lg:px-16 lg:py-24">
             <div class="mx-auto max-w-lg text-center">
               <h2 class="text-2xl font-bold text-gray-900 md:text-3xl">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit
+                경기도 으뜸 맛집을 검색해 보세요!
               </h2>
-
-              {/* <p class="hidden text-gray-500 sm:mt-4 sm:block">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae
-                dolor officia blanditiis repellat in, vero, aperiam porro ipsum
-                laboriosam consequuntur exercitationem incidunt tempora nisi?
-              </p> */}
             </div>
 
             <div class="mx-auto mt-8 max-w-xl">
-              <form action="#" class="sm:flex sm:gap-4">
+              <form action="#" onSubmit={handleSearch} class="sm:flex sm:gap-4">
                 <div class="sm:flex-1">
-                  <label for="" class="sr-only">
-                    검색
-                  </label>
-
                   <input
                     type="text"
-                    placeholder="검색"
+                    placeholder="검색하고 싶은 단어를 입력해주세요."
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
                     class="w-full rounded-md border-gray-200 bg-white p-3 text-gray-700 shadow-sm transition focus:border-white focus:outline-none focus:ring focus:ring-yellow-400"
                   />
                 </div>
@@ -39,7 +65,7 @@ export default function page() {
                   type="submit"
                   class="group mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-rose-600 px-5 py-3 text-white transition focus:outline-none focus:ring focus:ring-yellow-400 sm:mt-0 sm:w-auto"
                 >
-                  <span class="text-sm font-medium"> Search </span>
+                  <span class="text-sm font-medium"> 검색하기 </span>
 
                   <svg
                     class="h-5 w-5 rtl:rotate-180"
@@ -63,13 +89,31 @@ export default function page() {
 
         <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
           <ul class="grid grid-cols-1 gap-4 mt-8 lg:grid-cols-3">
-            {data.restaurants.map((restaurant) => (
+            {currentItems.map((restaurant) => (
               <GourmetItem
                 restaurant={restaurant}
                 key={restaurant.REFINE_ZIPNO}
-              ></GourmetItem>
+              />
             ))}
           </ul>
+        </div>
+
+        <div class="flex justify-center mt-8">
+          <nav class="flex items-center gap-2" aria-label="Pagination">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index + 1}
+                onClick={() => handlePageChange(index + 1)}
+                class={`px-4 py-2 rounded-md focus:outline-none focus:ring ${
+                  currentPage === index + 1
+                    ? "bg-rose-600 text-white"
+                    : "bg-white text-gray-700"
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </nav>
         </div>
       </div>
     </Layout>
