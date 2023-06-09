@@ -32,7 +32,7 @@ export default function Home() {
 
             <div class="mt-8 flex flex-wrap justify-center gap-4">
               <Link
-                href="/signin"
+                href="/"
                 class="block w-full rounded bg-indigo-400 px-12 py-3 text-sm font-medium text-white shadow hover:bg-indigo-500 focus:outline-none focus:ring active:bg-indigo-500 sm:w-auto"
               >
                 로그인

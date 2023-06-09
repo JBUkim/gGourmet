@@ -29,11 +29,10 @@ export default function restaurantDetail() {
 
             <div class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
               <div class="relative h-64 overflow-hidden sm:h-80 lg:h-full">
-                <div class="absolute inset-0 h-full w-full object-cover">
-                  <div>
-                    <img src="https://source.unsplash.com/collection/1346951/1000x1000" />
-                  </div>
-                </div>
+
+                    <img src={restaurant.IMG_URL}
+                    class="absolute inset-0 h-full w-full object-cover"
+                    ></img>
               </div>
 
               <div class="lg:py-16">

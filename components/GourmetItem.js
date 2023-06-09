@@ -9,7 +9,7 @@ export default function GourmetItem({ restaurant }) {
         class="relative block group"
       >
         <img
-          src="https://source.unsplash.com/collection/1346951/300x400"
+          src={restaurant.IMG_URL}
           class="object-cover w-full transition duration-500 aspect-square group-hover:opacity-80 rounded-lg"
         />
         <div class="absolute inset-0 flex flex-col items-start justify-end p-6">
