@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import Link from 'next/link';
 
 export default function Error404() {
   return (
@@ -27,17 +28,16 @@ export default function Error404() {
           Uh-oh!
         </h1>
 
-        <p class="mt-4 text-gray-500">We can't find that page.</p>
-        <a
-          class="mt-4 group relative inline-block focus:outline-none focus:ring"
-          href="/"
-        >
-          <span class="absolute inset-0 translate-x-0 translate-y-0 bg-yellow-300 transition-transform group-hover:translate-y-1.5 group-hover:translate-x-1.5"></span>
+        <p class="mt-4 text-gray-500">We can&apos;t find that page.</p>
+        <Link href="/">
+          <a className="mt-4 group relative inline-block focus:outline-none focus:ring">
+            <span className="absolute inset-0 translate-x-0 translate-y-0 bg-yellow-300 transition-transform group-hover:translate-y-1.5 group-hover:translate-x-1.5"></span>
 
-          <span class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest">
-            GoBack Home
-          </span>
-        </a>
+            <span className="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest">
+              GoBack Home
+            </span>
+          </a>
+        </Link>
       </div>
     </div>
   );

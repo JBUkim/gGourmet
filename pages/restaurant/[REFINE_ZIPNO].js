@@ -1,12 +1,12 @@
-import React from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import data from "../../utils/data";
-import Roadmap from "../../components/Roadmap";
-import Aroundmap from "../../components/Aroundmap";
-import Layout from "../../components/Layout";
+import React from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import data from '../../utils/data';
+import Roadmap from '../../components/Roadmap';
+import Aroundmap from '../../components/Aroundmap';
+import Layout from '../../components/Layout';
 
-export default function restaurantDetail() {
+export default function RestaurantDetail() {
   const { query } = useRouter();
   const { REFINE_ZIPNO } = query;
   const restaurant = data.restaurants.find(
@@ -29,10 +29,10 @@ export default function restaurantDetail() {
 
             <div class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
               <div class="relative h-64 overflow-hidden sm:h-80 lg:h-full">
-
-                    <img src={restaurant.IMG_URL}
-                    class="absolute inset-0 h-full w-full object-cover"
-                    ></img>
+                <img
+                  src={restaurant.IMG_URL}
+                  class="absolute inset-0 h-full w-full object-cover"
+                ></img>
               </div>
 
               <div class="lg:py-16">

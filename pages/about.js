@@ -1,7 +1,7 @@
-import React from "react";
-import Layout from "../components/Layout";
-import { BsGithub, BsFillHouseDoorFill } from "react-icons/bs";
-import Link from "next/link";
+import React from 'react'
+import Layout from '../components/Layout'
+import { BsGithub, BsFillHouseDoorFill } from 'react-icons/bs'
+import Link from 'next/link'
 
 export default function developers() {
   return (
@@ -9,14 +9,21 @@ export default function developers() {
       <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8 bg-white">
         <div class="">
           <section class="w-full flex flex-col items-center px-3">
-            <article class="flex flex-col p-4">
-              <div>
+            <article class="flex flex-col my-4 p-4">
+              <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
                 <iframe
-                  src="https://www.youtube.com/embed/GbQ79QCQki4"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                  className="w-full max-w-2xl h-500px mx-auto border-none block"
+                  src="https://www.youtube.com/embed/u6MLVSaQ9rc"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  style={{
+                    width: '500%',
+                    maxWidth: '1000px',
+                    height: '475px',
+                    border: 'none',
+                    marginLeft: '-50%',
+                    marginRight: '-50%',
+                  }}
                 ></iframe>
               </div>
 
@@ -114,5 +121,5 @@ export default function developers() {
         </div>
       </div>
     </Layout>
-  );
+  )
 }

@@ -1,23 +1,27 @@
-import Head from "next/head";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { signOut, useSession } from "next-auth/react";
-import Cookies from "js-cookie";
-import Link from "next/link";
-import Image from "next/image";
-export default function Layout({ title, children }) {
+import Head from 'next/head';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { signOut, useSession } from 'next-auth/react';
+import Cookies from 'js-cookie';
+import Link from 'next/link';
+import Image from 'next/image';
+export default function Layout({ title, children, serach, setSerach }) {
   const { status, data: session } = useSession();
 
   const logoutClickHandler = () => {
-    Cookies.remove("cart");
-    signOut({ callbackUrl: "/signin" });
+    Cookies.remove('cart');
+    signOut({ callbackUrl: '/signin' });
+  };
+
+  const handleMainScreen = () => {
+    setSearch(''); // 검색어 초기화
   };
 
   return (
     <>
       <Head>
         <title>
-          {title ? title + " - GyeonggiGourmet" : "GyeonggiGourmet"}
+          {title ? title + ' - GyeonggiGourmet' : 'GyeonggiGourmet'}
         </title>
         <meta name="description" content="Nextjs" />
         <link rel="icon" href="/gourmet.png" />
@@ -39,7 +43,7 @@ export default function Layout({ title, children }) {
               alt="Gourmet"
             />
             <Link
-              class="py-2 font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl"
+              class="text-center py-2 font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl"
               href="/"
             >
               Gyeonggi Gourmet
@@ -55,6 +59,7 @@ export default function Layout({ title, children }) {
               <Link
                 href="/restlist"
                 class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+                onClick={handleMainScreen}
               >
                 음식점 정보
               </Link>

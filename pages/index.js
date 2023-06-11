@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Layout from "../components/Layout";
-import Link from "next/link";
-import Image from "next/image";
-import data from "../utils/data";
-import { useRouter } from "next/router";
-import Indexcontent from "../components/Indexcontent";
+import React, { useState, useEffect } from 'react';
+import Layout from '../components/Layout';
+import Link from 'next/link';
+import Image from 'next/image';
+import data from '../utils/data';
+import { useRouter } from 'next/router';
+import Indexcontent from '../components/Indexcontent';
 
 export default function Home() {
   const { query } = useRouter();

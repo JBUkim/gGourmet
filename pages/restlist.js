@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import GourmetItem from "../components/GourmetItem";
-import data from "../utils/data";
-import Layout from "../components/Layout";
-import Swal from "sweetalert2";
+import React, { useState } from 'react';
+import GourmetItem from '../components/GourmetItem';
+import data from '../utils/data';
+import Layout from '../components/Layout';
+import Swal from 'sweetalert2';
 
-export default function page() {
-  const [search, setSearch] = useState("");
+export default function Page() {
+  const [search, setSearch] = useState('');
   const [results, setResults] = useState(data.restaurants);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
@@ -17,11 +17,14 @@ export default function page() {
       : data.restaurants.filter((r) =>
           r.RESTRT_NM.toLowerCase().includes(search.toLowerCase())
         );
+
+    setResults(searchResults);
+    setCurrentPage(1);
     if (searchResults.length === 0) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "검색 결과가 존재하지 않습니다.",
+        icon: 'error',
+        title: 'Oops...',
+        text: '검색 결과가 존재하지 않습니다.',
         footer: '<a href="">다시 검색하기</a>',
       });
     } else {
@@ -116,8 +119,8 @@ export default function page() {
                   onClick={() => handlePageChange(index + 1)}
                   class={`px-4 py-2 rounded-md focus:outline-none focus:ring ${
                     currentPage === index + 1
-                      ? "bg-blue-400 text-white"
-                      : "bg-white text-gray-700"
+                      ? 'bg-blue-400 text-white'
+                      : 'bg-white text-gray-700'
                   }`}
                 >
                   {index + 1}
