@@ -2,30 +2,6 @@ import React from "react";
 
 export default function Indexcontent({ restaurant }) {
   return (
-    // <blockquote class="rounded-lg bg-gray-100 p-8">
-    //   <div class="flex items-center gap-4">
-    //     <img
-    //       alt="Food_img"
-    //       src={restaurant.IMG_URL}
-    //       class="h-16 w-16 rounded-full object-cover"
-    //     />
-
-    //     <div>
-    //       <div class="flex justify-center gap-0.5 text-green-500">
-    //         {restaurant.REFINE_ZIPNO}
-    //       </div>
-
-    //       <p class="flex justify-center mt-1 text-lg font-medium text-gray-700">
-    //         {restaurant.RESTRT_NM}
-    //       </p>
-    //     </div>
-    //   </div>
-
-    //   <p class="flex justify-center line-clamp-2 sm:line-clamp-none mt-4 text-gray-500">
-    //     {restaurant.REPRSNT_FOOD_NM}
-    //   </p>
-    // </blockquote>
-
     <li>
       <a
         href={`/restaurant/${restaurant.REFINE_ZIPNO}`}

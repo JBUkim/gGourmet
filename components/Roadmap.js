@@ -17,9 +17,9 @@ export default function Roadmap() {
     lng: restaurant.REFINE_WGS84_LOGT,
   });
 
-  if (!restaurant) {
-    return <Layout title="Restaurant Not Found">Restaurant Not Found</Layout>;
-  }
+  // if (!restaurant) {
+  //   return <Layout title="Restaurant Not Found">Restaurant Not Found</Layout>;
+  // }
 
   return (
     <div style={{ display: "flex" }}>
