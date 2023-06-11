@@ -13,9 +13,9 @@ export default function RestaurantDetail() {
     (x) => x.REFINE_ZIPNO === REFINE_ZIPNO
   );
 
-  // if (!restaurant) {
-  //   return <div>NOT FOUND</div>;
-  // }
+  if (!restaurant) {
+    return <div></div>;
+  }
 
   return (
     <Layout title={restaurant.RESTRT_NM}>
